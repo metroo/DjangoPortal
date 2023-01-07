@@ -1,0 +1,30 @@
+{% extends "users/base.html" %}
+{% block title %} Home Page {% endblock title%}
+{% block content %}
+
+    {% if user.is_authenticated %}
+<div class="album py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-4">
+        {% for todo in todos %}
+             <div class="col ">
+                 <a href="{% url 'embedContent:details' todo.id %}">
+                    <div class="card  shadow-sm text-center h-100">
+                        <div class="card-body">
+                            <img src="media/{{ todo.imageurl }}"   style="align-content:center;max-width:100px;max-height: 100px" alt="...">
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-text">
+                                 <h5 class="card-title">{{ todo.title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                 </a>
+             </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+    {% endif %}
+{% endblock content %}

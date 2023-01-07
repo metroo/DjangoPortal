@@ -1,0 +1,22 @@
+{% extends "users/base.html" %}
+{% block title %} {{ todo.title }}  {% endblock title%}
+{% block title-slug %} -> {{ todo.title }}  {% endblock title-slug%}
+{%  block content %}
+
+    <style>
+    .iframe_container {
+        background-image: url('/media/Fidget-spinner.gif');
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .iframe_container iframe {
+        background: transparent;
+    }
+    </style>
+    <div class="ratio ratio-16x9 iframe_container">
+      <iframe onload="document.getElementById('spinner').style.display='none';" src="{{ todo.url }}"
+              title="todo.title" allowfullscreen></iframe>
+    </div>
+
+
+{%  endblock %}
